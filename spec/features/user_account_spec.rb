@@ -16,6 +16,15 @@ feature 'User accounts' do
       sign_up
       expect(User.first.password_hash).not_to eq('testing123')
     end
+
+    scenario 'fails if password and password_confirmation do not match' do
+      expect{ sign_up('Test Bloggs', 'tester', 'test@test.co.uk', 'testing123', 'thisiswrong') }.to_not change{ User.all.count }
+    end
+
+    scenario 'fails if non-unique email is provided' do
+      sign_up()
+      expect{ sign_up('Different Bloggs', 'tester2', 'test@test.co.uk', 'testing123') }.to_not change{ User.all.count }
+    end
   end
 
 end
