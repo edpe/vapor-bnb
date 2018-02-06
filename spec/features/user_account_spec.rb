@@ -1,4 +1,5 @@
 feature 'User accounts' do
+  # delete this comment
 
   context 'Sign up' do
 
