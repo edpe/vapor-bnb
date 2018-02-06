@@ -20,7 +20,7 @@ class VaporBnb < Sinatra::Base
 
   post '/spaces' do
     Space.create(name: params[:name], description: params[:description], price: params[:price])
-    p params
+    # p params
     redirect '/spaces'
   end
 

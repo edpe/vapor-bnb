@@ -1,5 +1,5 @@
-feature 'listing spaces' do
-  scenario 'adding a space' do
+feature 'Listing spaces' do
+  scenario 'Adding a space' do
     visit('/spaces/new')
     fill_in('name', with: 'Holo Pad')
     fill_in('description', with: 'Holographic neon dream for two aesthetics')
@@ -8,6 +8,5 @@ feature 'listing spaces' do
     expect(current_path).to eq '/spaces'
     expect(page).to have_text('Holo Pad')
   end
-
 
 end
