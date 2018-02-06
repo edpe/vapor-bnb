@@ -8,4 +8,8 @@ class VaporBnb < Sinatra::Base
 
   enable :sessions
 
+  get '/spaces/new' do
+    erb :'spaces/new'
+  end
+
 end
