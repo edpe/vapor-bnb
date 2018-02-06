@@ -10,7 +10,6 @@ feature 'User accounts' do
       end
 
       scenario 'shows the user\'s name on the welcome page' do
-        # This test is here to assert that the user id is stored in a session
         sign_up
         expect(page).to have_content('Welcome, Test Bloggs!')
       end
