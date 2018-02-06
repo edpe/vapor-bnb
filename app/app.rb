@@ -27,7 +27,7 @@ class VaporBnb < Sinatra::Base
       session[:user_id] = user.id
       redirect '/welcome'
     else
-      flash[:error] = user.errors.full_messages.join("\n")
+      flash[:error] = user.errors.full_messages.join("<br>")
       redirect '/'
     end
 
