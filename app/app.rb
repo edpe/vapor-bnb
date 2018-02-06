@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "development"
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative './models/user'
 # require models here
@@ -8,6 +9,7 @@ require_relative './models/user'
 class VaporBnb < Sinatra::Base
 
   enable :sessions
+  register Sinatra::Flash
 
   get '/' do
     erb(:sign_up)
@@ -24,7 +26,11 @@ class VaporBnb < Sinatra::Base
     if user.save
       session[:user_id] = user.id
       redirect '/welcome'
+    else
+      flash[:error] = user.errors.full_messages.join("\n")
+      redirect '/'
     end
+
   end
 
   get '/welcome' do
