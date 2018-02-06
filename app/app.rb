@@ -30,7 +30,6 @@ class VaporBnb < Sinatra::Base
       flash[:error] = user.errors.full_messages.join("<br>")
       redirect '/'
     end
-
   end
 
   get '/welcome' do
