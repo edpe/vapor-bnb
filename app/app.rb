@@ -13,4 +13,14 @@ class VaporBnb < Sinatra::Base
     erb :'spaces/new'
   end
 
+  get '/spaces' do
+    @spaces = Space.all
+    erb(:'spaces/index')
+  end
+
+  post '/spaces' do
+    Space.create(name: params[:name], description: params[:description], price: params[:price])
+    redirect '/spaces'
+  end
+
 end
