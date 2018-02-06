@@ -3,12 +3,9 @@ feature 'listing spaces' do
     visit('/spaces/new')
     fill_in('name', with: 'Holo Pad')
     fill_in('description', with: 'Holographic neon dream for two aesthetics')
-    fill_in('price', with: 'Δ500')
+    fill_in('price', with: '500')
     click_button 'list space'
     expect(current_path).to eq '/spaces'
-    p 'SPACES VARIABLE'
-    p @spaces
-    p Space.all
     expect(page).to have_text('Holo Pad')
   end
 
