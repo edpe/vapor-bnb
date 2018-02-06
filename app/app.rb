@@ -14,7 +14,6 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/users/new' do
-    p ""
     user = User.new(
       name: params[:name],
       username: params[:username],
