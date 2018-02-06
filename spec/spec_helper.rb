@@ -8,6 +8,7 @@ require 'dm-postgres-adapter'
 require './app/data_mapper_setup'
 require './app/app'
 require './app/models/user'
+require 'features/web_helpers'
 # require models here
 
 

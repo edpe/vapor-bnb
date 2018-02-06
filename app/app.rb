@@ -20,7 +20,15 @@ class VaporBnb < Sinatra::Base
       email: params[:email],
       password: params[:password]
     )
-    user.save
+    if user.save
+      session[:user_id] = user.id
+      redirect '/welcome'
+    end
+  end
+
+  get '/welcome' do
+    @user = User.get(session[:user_id])
+    erb(:welcome)
   end
 
 end
