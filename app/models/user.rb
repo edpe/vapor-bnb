@@ -1,9 +1,12 @@
 require 'bcrypt'
 require 'dm-validations'
+require_relative 'space'
 
 class User
   include DataMapper::Resource
   include BCrypt
+
+  has n, :spaces
 
   attr_reader :password
   attr_accessor :password_confirmation

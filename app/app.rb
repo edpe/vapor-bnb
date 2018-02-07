@@ -49,9 +49,19 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/spaces' do
-    Space.create(name: params[:name], description: params[:description], price: params[:price])
-    # p params
-    redirect '/spaces'
+    space = Space.new(name: params[:name], description: params[:description], price: params[:price])
+    space.user = current_user
+    if space.save
+      redirect '/spaces'
+    else
+      redirect '/spaces/new'
+    end
+  end
+
+  helpers do
+    def current_user
+      @current_user ||= User.get(session[:user_id])
+    end
   end
 
 end

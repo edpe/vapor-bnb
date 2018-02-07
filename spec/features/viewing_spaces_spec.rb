@@ -1,9 +1,16 @@
 feature 'Viewing spaces' do
   scenario 'I can see existing spaces on the page' do
-    Space.create(name: 'Holo Pad', description: 'Holographic neon dream for two aesthetics', price: '500')
+    sign_up
+    space_form
     visit '/spaces'
     within 'ul#spaces' do
       expect(page).to have_content('Holo Pad')
     end
+  end
+
+  scenario 'the space has a user' do
+    sign_up
+    space_form
+    expect(page).to have_content("tester")
   end
 end
