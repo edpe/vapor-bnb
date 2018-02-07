@@ -7,3 +7,11 @@ def sign_up(name = 'Test Bloggs', username = 'tester', email = 'test@test.co.uk'
   fill_in('password_confirmation', with: password_confirmation)
   click_button("Submit")
 end
+
+def space_form(name = 'Holo Pad', description = 'Holographic neon dream for two aesthetics', price = '500')
+  visit('spaces/new')
+  fill_in('name', with: name)
+  fill_in('description', with: description)
+  fill_in('price', with: price)
+  click_button 'list space'
+end
