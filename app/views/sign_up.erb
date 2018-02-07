@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VaporBnB</title>
+  </head>
+  <body>
+
+    <h1>Sign up</h1>
+
+    <%= flash[:error] %>
+
+    <form action="/users/new" method="POST">
+      <label for="name">Name:</label>
+        <input type="text" required name="name" placeholder="Name">
+      <label for="username">Username:</label>
+        <input type="text" required name="username" placeholder="Username">
+      <label for="email">Email</label>
+        <input type="text" required name="email" placeholder="Email">
+      <label for="password">Password:</label>
+        <input type="password" required name="password" placeholder="Password">
+      <label for="password_confirmation">Confirm password:</label>
+        <input type="password" required name="password_confirmation" placeholder="Confirm password">
+      <input type="submit" value="Submit">
+    </form>
+
+
+  </body>
+</html>
