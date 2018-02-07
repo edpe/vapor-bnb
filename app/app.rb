@@ -5,6 +5,7 @@ require 'sinatra/flash'
 require_relative 'data_mapper_setup'
 require_relative './models/user'
 # require models here
+# test change
 
 class VaporBnb < Sinatra::Base
 
