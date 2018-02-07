@@ -64,7 +64,10 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/bookings' do
-    Booking.create()
+    booking = Booking.new()
+    booking.space = Space.get(params[:space_name])
+    booking.save
+
   end
 
   helpers do
