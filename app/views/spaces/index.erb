@@ -1,10 +1,13 @@
 <ul id="spaces">
   <% @spaces.each do |space|%>
   <li>
-    Name: <%= space.name %>
+    Name: <a href=<%= "/spaces/" + space.name %>>Hello</a>
     Description: <%= space.description %>
     Price: <%= space.price %>
     User: <%= space.user.username %>
+    <form action="/spaces" method="POST" >
+      <input type="button" name="book" value=" b o o k " />
+    </form>
   </li>
   <% end %>
 </ul>
