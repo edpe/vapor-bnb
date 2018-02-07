@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative './models/booking'
 require_relative './models/space'
 require_relative './models/user'
 # require models here
@@ -56,6 +57,14 @@ class VaporBnb < Sinatra::Base
     else
       redirect '/spaces/new'
     end
+  end
+
+  get '/bookings/new' do
+    erb(:'bookings/new')
+  end
+
+  post '/bookings' do
+    Booking.create()
   end
 
   helpers do
