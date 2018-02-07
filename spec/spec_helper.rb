@@ -6,6 +6,7 @@ require 'dm-migrations'
 require 'data_mapper'
 require 'dm-postgres-adapter'
 require './app/app'
+require './app/models/space'
 require './app/models/user'
 require 'features/web_helpers'
 # require models here

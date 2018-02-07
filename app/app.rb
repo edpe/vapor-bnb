@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative './models/space'
 require_relative './models/user'
 # require models here
 # test change
@@ -36,6 +37,21 @@ class VaporBnb < Sinatra::Base
   get '/welcome' do
     @user = User.get(session[:user_id])
     erb(:welcome)
+  end
+
+  get '/spaces/new' do
+    erb (:'spaces/new')
+  end
+
+  get '/spaces' do
+    @spaces = Space.all
+    erb(:'spaces/index')
+  end
+
+  post '/spaces' do
+    Space.create(name: params[:name], description: params[:description], price: params[:price])
+    # p params
+    redirect '/spaces'
   end
 
 end
