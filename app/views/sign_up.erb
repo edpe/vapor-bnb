@@ -3,26 +3,38 @@
   <head>
     <meta charset="utf-8">
     <title>VaporBnB</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="./sign_up_stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
   </head>
   <body>
 
-    <h1>Sign in</h1>
+    <audio loop autoplay>
+      <source src="./resources/desire.mp3" type="audio/mpeg">
+    </audio>
 
-    <%= flash[:error] %>
+    <div class="container">
+      <h1>VAPOR_</h1>
+      <h1>BNB</h1>
+    </div>
 
-    <form action="/users/new" method="POST">
-      <label for="name">Name:</label>
-        <input type="text" required name="name" placeholder="Name">
-      <label for="username">Username:</label>
-        <input type="text" required name="username" placeholder="Username">
-      <label for="email">Email</label>
-        <input type="text" required name="email" placeholder="Email">
-      <label for="password">Password:</label>
-        <input type="password" required name="password" placeholder="Password">
-      <label for="password_confirmation">Confirm password:</label>
-        <input type="password" required name="password_confirmation" placeholder="Confirm password">
-      <input type="submit" value="Submit">
-    </form>
+    <div class="sign_up container">
+      <h2>Sign in</h2>
+      <%= flash[:error] %>
+      <form action="/users/new" method="POST" class="sign_up_form">
+        <label for="name"></label>
+          <input type="text" required name="name" placeholder="Name">
+        <label for="username"></label>
+          <input type="text" required name="username" placeholder="Username">
+        <label for="email"></label>
+          <input type="text" required name="email" placeholder="Email">
+        <label for="password"></label>
+          <input type="password" required name="password" placeholder="Password">
+        <label for="password_confirmation"></label>
+          <input type="password" required name="password_confirmation" placeholder="Confirm password">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
 
 
   </body>

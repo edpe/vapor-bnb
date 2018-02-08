@@ -1,0 +1,29 @@
+body {
+  background-image: url('./resources/Vaporwave-Right.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  font-family: 'Megrim', cursive;
+  font-size: 5.5em;
+  letter-spacing: 0.2em;
+  text-shadow: 0 0 10px hsla(111, 100%, 50%, 50)
+}
+
+.container {
+  padding-top: 3em;
+  padding-left: 5em;
+}
+
+.sign_up {
+  display: flex;
+  flex-direction: column;
+  width: 14em;
+}
+
+.sign_up_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
