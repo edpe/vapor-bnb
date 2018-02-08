@@ -65,19 +65,25 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/bookings' do
-    booking = Booking.new(date: params[:date], space_name: params[:space_name])
-    # booking.space = Space.get(params[:space_name])
+    booking = Booking.new(date: params[:date])
+    booking.space = current_space
     if booking.save
       puts "Booking saved successfully"
     end
+  end
 
   get '/spaces/:id' do
+    session[:space_id] = params[:id]
     erb(:'spaces/name')
   end
 
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
+    end
+
+    def current_space
+      @current_space ||= Space.get(session[:space_id])
     end
   end
 

@@ -13,4 +13,18 @@ namespace :db do
     DataMapper.auto_migrate!
     puts "Auto-migrate complete (data lost)"
   end
+
+  desc "Does all of the stuff"
+  task :all do
+    DataMapper.auto_migrate!
+    puts "Auto-migrate complete - dev (data lost)"
+    DataMapper.auto_upgrade!
+    puts "Auto-upgrade complete - dev (no data loss)"
+    RACK_ENV=test
+    DataMapper.auto_migrate!
+    puts "Auto-migrate complete - test (data lost)"
+    RACK_ENV=test
+    DataMapper.auto_upgrade!
+    puts "Auto-upgrade complete - test (no data loss)"
+  end
 end
