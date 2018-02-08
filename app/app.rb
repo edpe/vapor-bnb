@@ -3,6 +3,7 @@ ENV["RACK_ENV"] ||= "development"
 require 'sinatra/base'
 require 'sinatra/flash'
 require_relative 'data_mapper_setup'
+require_relative './models/booking'
 require_relative './models/space'
 require_relative './models/user'
 # require models here
@@ -49,7 +50,8 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/spaces' do
-    space = Space.new(name: params[:name], description: params[:description], price: params[:price])
+    space = Space.new(name: params[:name], description: params[:description],
+                      price: params[:price])
     space.user = current_user
     if space.save
       redirect '/spaces'
@@ -57,6 +59,17 @@ class VaporBnb < Sinatra::Base
       redirect '/spaces/new'
     end
   end
+
+  get '/bookings/new' do
+    erb(:'bookings/new')
+  end
+
+  post '/bookings' do
+    booking = Booking.new(date: params[:date], space_name: params[:space_name])
+    # booking.space = Space.get(params[:space_name])
+    if booking.save
+      puts "Booking saved successfully"
+    end
 
   get '/spaces/:id' do
     erb(:'spaces/name')
