@@ -4,10 +4,14 @@ class Booking
 
   include DataMapper::Resource
 
-  # has 1, :space, :required => false
   belongs_to :space, :required => false
 
   property :id,   Serial
   property :date, String
+  property :confirmed, Boolean, :default => false
+
+  def confirm
+    self.update(:confirmed => true)
+  end
 
 end
