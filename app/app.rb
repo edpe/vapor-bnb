@@ -45,6 +45,7 @@ class VaporBnb < Sinatra::Base
 
   get '/spaces' do
     @spaces = Space.all
+    p params
     erb(:'spaces/index')
   end
 
@@ -56,6 +57,11 @@ class VaporBnb < Sinatra::Base
     else
       redirect '/spaces/new'
     end
+  end
+
+  get '/spaces/:name' do
+    p params
+    erb(:'spaces/name')
   end
 
   helpers do
