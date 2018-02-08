@@ -50,7 +50,8 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/spaces' do
-    space = Space.new(name: params[:name], description: params[:description], price: params[:price])
+    space = Space.new(name: params[:name], description: params[:description],
+                      price: params[:price])
     space.user = current_user
     if space.save
       redirect '/spaces'
@@ -64,9 +65,11 @@ class VaporBnb < Sinatra::Base
   end
 
   post '/bookings' do
-    booking = Booking.new()
-    booking.space = Space.get(params[:space_name])
-    booking.save
+    booking = Booking.new(date: params[:date], space_name: params[:space_name])
+    # booking.space = Space.get(params[:space_name])
+    if booking.save
+      puts "Booking saved successfully"
+    end
 
   end
 

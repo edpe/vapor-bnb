@@ -16,6 +16,6 @@ feature 'creating a booking' do
       fill_in('space_name', with: 'Holo Pad')
       fill_in('date', with: '08/02/2017')
       click_button('Submit')
-      expect(Booking.first.space.name).to eq 'Holo Pad'
+      expect(Booking.first.space_name).to eq 'Holo Pad'
     end
 end
