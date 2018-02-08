@@ -1,4 +1,4 @@
-feature 'One space'do
+feature 'One space' do
 
   context 'has its own page' do
 

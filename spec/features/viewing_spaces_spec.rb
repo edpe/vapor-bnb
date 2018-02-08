@@ -13,4 +13,11 @@ feature 'Viewing spaces' do
     space_form
     expect(page).to have_content("tester")
   end
+
+  scenario 'has a button to return to the welcome page' do
+    sign_up
+    space_form
+    click_button(" ← ")
+    expect(page).to have_content("Welcome, Test Bloggs")
+  end
 end

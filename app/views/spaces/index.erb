@@ -1,13 +1,30 @@
-<ul id="spaces">
-  <% @spaces.each do |space|%>
-  <li>
-    Name: <%= space.name %>
-    Description: <%= space.description %>
-    Price: <%= space.price %>
-    User: <%= space.user.username %>
-    <form action=<%= "/spaces/" + space.id.to_s %> >
-      <input type="submit" value=" v i e w " />
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <!-- spaces list -->
+    <ul id="spaces">
+      <% @spaces.each do |space|%>
+      <li>
+        Name: <%= space.name %>
+        Description: <%= space.description %>
+        Price: <%= space.price %>
+        User: <%= space.user.username %>
+        <form action=<%= "/spaces/" + space.id.to_s %> >
+          <input type="submit" value=" v i e w " />
+        </form>
+      </li>
+      <% end %>
+    </ul>
+
+    <!-- back button -->
+    <form action="/welcome">
+      <input type="submit" value=" ← ">
     </form>
-  </li>
-  <% end %>
-</ul>
+
+  </body>
+</html>

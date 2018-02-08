@@ -1,17 +1,26 @@
-<form action="/spaces" method="POST">
-    <label for="name">
-    Name:
-  </label>
-  <input type="text" name="name" />
-  <br />
-  <label for="description">
-  Description:
-  </label>
-  <input type="text" name="description"  />
-  <br />
-  <label for="price" >
-  Price:
-  </label>
-  <input type="text" name="price"  />
-  <input type="submit" value="list space"  />
-</form>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <!-- new space form -->
+    <form action="/spaces" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" />
+      <label for="description">Description:</label>
+      <input type="text" name="description"  />
+      <label for="price" >Price:</label>
+      <input type="text" name="price"  />
+      <input type="submit" value="list space"  />
+    </form>
+
+    <!-- back button -->
+    <form action="/spaces">
+      <input type="submit" value=" ← ">
+    </form>
+
+  </body>
+</html>
