@@ -68,7 +68,8 @@ class VaporBnb < Sinatra::Base
 
   get '/spaces/:id' do
     session[:space_id] = params[:id]
-    erb(:'spaces/name')
+    @space = current_space
+    erb(:'bookings/new')
   end
 
 # bookings
@@ -98,7 +99,7 @@ class VaporBnb < Sinatra::Base
   end
 
   get '/host/bookings_management' do
-    
+
   end
 
 # helpers
