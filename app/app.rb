@@ -71,6 +71,8 @@ class VaporBnb < Sinatra::Base
       puts "Booking saved successfully"
     end
 
+  get '/spaces/:id' do
+    erb(:'spaces/name')
   end
 
   helpers do
