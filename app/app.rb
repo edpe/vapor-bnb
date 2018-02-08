@@ -98,9 +98,15 @@ class VaporBnb < Sinatra::Base
 
   end
 
-  get '/host/bookings_management' do
-
+  get '/bookings/manage' do
+    # @spaces = current_user.spaces
+    @bookings = current_user.spaces.bookings
+    erb(:'bookings/manage')
   end
+
+  # get '/host/bookings_management' do
+  #
+  # end
 
 # helpers
 

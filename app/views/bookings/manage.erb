@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <ul id="manage-bookings">
+      <% @bookings.each do |booking| %>
+      <li>
+  
+        Space: <%= booking.space.name %>
+        Date: <%= booking.date %>
+        Price: <%= booking.space.price %>
+      </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
