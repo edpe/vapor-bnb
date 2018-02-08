@@ -15,3 +15,9 @@ def space_form(name = 'Holo Pad', description = 'Holographic neon dream for two 
   fill_in('price', with: price)
   click_button 'list space'
 end
+
+def go_to_single_space
+  sign_up
+  space_form
+  click_button ' v i e w '
+end
