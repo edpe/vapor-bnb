@@ -35,7 +35,7 @@ class VaporBnb < Sinatra::Base
   end
 
   get '/welcome' do
-    @user = User.get(session[:user_id])
+    @user = current_user
     erb(:welcome)
   end
 
@@ -56,6 +56,10 @@ class VaporBnb < Sinatra::Base
     else
       redirect '/spaces/new'
     end
+  end
+
+  get '/spaces/:id' do
+    erb(:'spaces/name')
   end
 
   helpers do

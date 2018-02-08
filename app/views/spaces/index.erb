@@ -5,6 +5,9 @@
     Description: <%= space.description %>
     Price: <%= space.price %>
     User: <%= space.user.username %>
+    <form action=<%= "/spaces/" + space.id.to_s %> >
+      <input type="submit" value=" b o o k " />
+    </form>
   </li>
   <% end %>
 </ul>
