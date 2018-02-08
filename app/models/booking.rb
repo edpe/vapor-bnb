@@ -4,9 +4,10 @@ class Booking
 
   include DataMapper::Resource
 
+  # has 1, :space, :required => false
+  belongs_to :space, :required => false
+
   property :id,   Serial
   property :date, String
-  property :space_name,String
 
-  # belongs_to :space
 end

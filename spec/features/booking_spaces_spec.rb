@@ -4,7 +4,7 @@ feature 'booking spaces' do
     space_form
     sign_up('Lil Fangz','A C I D S L V G','lilfangz@fijiwater.co.uk','beyourvapor')
     visit('/spaces')
-    expect(page).to have_selector("input[value=' b o o k ']")
+    expect(page).to have_selector("input[value=' v i e w ']")
   end
 
   scenario 'book button redirects to page for space' do
@@ -12,6 +12,6 @@ feature 'booking spaces' do
     space_form
     sign_up('Lil Fangz','A C I D S L V G','lilfangz@fijiwater.co.uk','beyourvapor')
     visit('/spaces')
-    click_button ' b o o k '
+    click_button ' v i e w '
   end
 end
