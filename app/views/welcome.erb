@@ -6,8 +6,27 @@
   </head>
   <body>
     Welcome, <%= @user.name %>!
-    <form action="/spaces">
-      <input type="submit" value=" s p a c e s " />
-    </form>
+
+    <!-- customer options -->
+    <div class="customer_options">
+      <p>As a customer</p>
+      <form action="/spaces">
+        <input type="submit" value="☯ s p a c e s ☯" />
+      </form>
+      <form action="/customer/bookings">
+        <input type="submit" value="Δ b o o k i n g s Δ">
+      </form>
+    </div>
+
+    <!-- land baron options -->
+    <div class="land_baron_options">
+      <p>As a land baron</p>
+      <form action="/host/space_management">
+        <input type="submit" value="♛ m a n a g e _ s p a c e s ♛">
+      </form>
+      <form action="/host/bookings_management">
+        <input type="submit" value="▩ m a n a g e _ b o o k i n g s ▩">
+      </form>
+    </div>
   </body>
 </html>

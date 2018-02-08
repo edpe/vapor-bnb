@@ -14,9 +14,18 @@ class VaporBnb < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
 
+# main pages
+
   get '/' do
     erb(:sign_up)
   end
+
+  get '/welcome' do
+    @user = current_user
+    erb(:welcome)
+  end
+
+# users
 
   post '/users/new' do
     user = User.new(
@@ -35,10 +44,7 @@ class VaporBnb < Sinatra::Base
     end
   end
 
-  get '/welcome' do
-    @user = current_user
-    erb(:welcome)
-  end
+# spaces
 
   get '/spaces/new' do
     erb (:'spaces/new')
@@ -60,6 +66,13 @@ class VaporBnb < Sinatra::Base
     end
   end
 
+  get '/spaces/:id' do
+    session[:space_id] = params[:id]
+    erb(:'spaces/name')
+  end
+
+# bookings
+
   get '/bookings/new' do
     erb(:'bookings/new')
   end
@@ -72,10 +85,23 @@ class VaporBnb < Sinatra::Base
     end
   end
 
-  get '/spaces/:id' do
-    session[:space_id] = params[:id]
-    erb(:'spaces/name')
+# customer stuff
+
+  get '/customer/bookings' do
+
   end
+
+# host stuff
+
+  get '/host/space_management' do
+
+  end
+
+  get '/host/bookings_management' do
+    
+  end
+
+# helpers
 
   helpers do
     def current_user
