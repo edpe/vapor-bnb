@@ -96,7 +96,7 @@ class VaporBnb < Sinatra::Base
 # host stuff
 
   get '/host/space_management' do
-
+    erb(:'spaces/manage')
   end
 
   get '/bookings/manage' do

@@ -5,7 +5,7 @@ def sign_up(name = 'Test Bloggs', username = 'tester', email = 'test@test.co.uk'
   fill_in('email', with: email)
   fill_in('password', with: password)
   fill_in('password_confirmation', with: password_confirmation)
-  click_button("Submit")
+  click_button("☯ シ m y  b o d y  i s  r e a d y")
 end
 
 def space_form(name = 'Holo Pad', description = 'Holographic neon dream for two aesthetics', price = '500')
