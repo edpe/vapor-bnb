@@ -39,7 +39,7 @@ feature 'confirming a booking' do
     book_a_space
     confirm_booking
     expect(Booking.first.confirmed).to eq true
-    expect(page).to have_content 'Booking c o n f i r m e d'
+    expect(page).to have_content '☥☥ B0⦰KING C⦰NF|rmD ☥☥'
   end
 
   scenario 'confirmed bookings are not displayed on the manage bookings page' do
