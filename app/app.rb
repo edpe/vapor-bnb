@@ -83,8 +83,12 @@ class VaporBnb < Sinatra::Base
     booking.space = current_space
     booking.user = current_user
     if booking.save
-      puts "Booking saved successfully"
+      redirect '/bookings'
     end
+  end
+
+  get '/bookings' do
+    erb(:'bookings/index')
   end
 
 # customer stuff

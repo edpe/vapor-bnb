@@ -1,0 +1,37 @@
+body {
+  background-image: url('./resources/sebastian-sanabria-vaporwave.jpg');
+  background-repeat: no-repeat;
+		background-size:cover;
+		text-align:center;
+		persective:500;
+	}
+  @-webkit-keyframes swing{
+		20%{
+			-webkit-transform:rotateY(10deg);
+		}
+		60%{
+			-webkit-transform:rotateY(-20deg);
+		}
+    20%{
+			-webkit-transform:rotateX(20deg);
+		}
+		60%{
+			-webkit-transform:rotateX(-10deg);
+		}
+}
+
+h1 {
+  display:inline-block;
+		font-size:60px;
+		color:yellow;
+		text-shadow:2px 2px orange,4px 4px pink;
+		font-weight:bold;
+		-webkit-animation:swing 6s infinite ease-in-out;
+    padding-top:20%;
+}
+
+
+.container {
+  padding-top: 3em;
+  padding-left: 5em;
+}
