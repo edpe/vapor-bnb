@@ -21,3 +21,15 @@ def go_to_single_space
   space_form
   click_button ' v i e w '
 end
+
+def book_a_space
+  click_button (' v i e w ')
+  fill_in('date', with: '08/02/2017')
+  click_button (' b o o k ')
+end
+
+def confirm_booking
+  visit('/welcome')
+  click_button ("▩ m a n a g e _ b o o k i n g s ▩")
+  click_button (' c o n f i r m ')
+end

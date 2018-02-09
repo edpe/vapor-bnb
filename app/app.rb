@@ -104,6 +104,12 @@ class VaporBnb < Sinatra::Base
     erb(:'bookings/manage')
   end
 
+  get '/bookings/confirm/:id' do
+    session[:booking_id] = params[:id]
+    current_booking.confirm
+    erb(:'bookings/confirm')
+  end
+
   # get '/host/bookings_management' do
   #
   # end
@@ -117,6 +123,10 @@ class VaporBnb < Sinatra::Base
 
     def current_space
       @current_space ||= Space.get(session[:space_id])
+    end
+
+    def current_booking
+      @current_booking ||= Booking.get(session[:booking_id])
     end
   end
 

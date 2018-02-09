@@ -7,12 +7,16 @@
   <body>
     <ul id="manage-bookings">
       <% @bookings.each do |booking| %>
-      <li>
-  
-        Space: <%= booking.space.name %>
-        Date: <%= booking.date %>
-        Price: <%= booking.space.price %>
-      </li>
+        <% if !booking.confirmed %>
+        <li>
+          Space: <%= booking.space.name %>
+          Date: <%= booking.date %>
+          Price: <%= booking.space.price %>
+          <form action=<%="/bookings/confirm/" + booking.id.to_s %> >
+            <input type="submit" value=" c o n f i r m "  />
+          </form>
+        </li>
+        <% end %>
       <% end %>
     </ul>
   </body>
