@@ -81,6 +81,7 @@ class VaporBnb < Sinatra::Base
   post '/bookings' do
     booking = Booking.new(date: params[:date])
     booking.space = current_space
+    booking.user = current_user
     if booking.save
       puts "Booking saved successfully"
     end

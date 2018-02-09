@@ -9,6 +9,7 @@
       <% @bookings.each do |booking| %>
         <% if !booking.confirmed %>
         <li>
+          User <%= booking.user.username %>
           Space: <%= booking.space.name %>
           Date: <%= booking.date %>
           Price: <%= booking.space.price %>

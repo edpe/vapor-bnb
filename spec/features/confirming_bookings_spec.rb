@@ -24,6 +24,15 @@ feature 'confirming a booking' do
     expect(page).to have_content('08/02/2017')
   end
 
+  scenario 'the customer is shown on management page' do
+    sign_up
+    space_form
+    book_a_space
+    visit('/welcome')
+    click_button ("▩ m a n a g e _ b o o k i n g s ▩")
+    expect(page).to have_content('tester')
+  end
+
   scenario 'bookings can be confirmed (website)' do
     sign_up
     space_form
