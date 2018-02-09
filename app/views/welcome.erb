@@ -2,31 +2,54 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Welcome</title>
+    <title>~ W E L C O M E ~</title>
+    <link href="./reset.css" rel="stylesheet" type="text/css">
+    <link href="./welcome_stylesheet.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Megrim" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
   </head>
   <body>
-    Welcome, <%= @user.name %>!
+    <audio loop autoplay>
+      <source src="./resources/midnight.mp3" type="audio/mpeg">
+    </audio>
+    <div class="container">
+      <h1>Welcome, <%= @user.name %>!</h1>
+      <h2>What can we do for you?</h2>
 
-    <!-- customer options -->
-    <div class="customer_options">
-      <p>As a customer</p>
-      <form action="/spaces">
-        <input type="submit" value="☯ s p a c e s ☯" />
-      </form>
-      <form action="/customer/bookings">
-        <input type="submit" value="Δ b o o k i n g s Δ">
-      </form>
+      <!-- customer options -->
+        <div class="optionscontainer" id="customer_options">
+          <img src="./resources/zangeif.jpg">
+          <div class="buttonscontainer">
+            <p>As a customer</p>
+            <form action="/spaces">
+              <input type="submit" value="☯ s p a c e s ☯" />
+            </form>
+            <form action="/customer/bookings">
+              <input type="submit" value="Δ b o o k i n g s Δ">
+            </form>
+          </div>
+        </div>
+
+        <!-- land baron options -->
+        <div class="optionscontainer" id="landbaron_options">
+          <img src="./resources/ryu.jpg">
+          <div class="buttonscontainer">
+            <p>As a land baron</p>
+            <form action="/host/space_management">
+              <input type="submit" value="♛ m a n a g e _ s p a c e s ♛">
+            </form>
+            <form action="/bookings/manage">
+              <input type="submit" value="▩ m a n a g e _ b o o k i n g s ▩">
+            </form>
+          </div>
+        </div>
     </div>
 
-    <!-- land baron options -->
-    <div class="land_baron_options">
-      <p>As a land baron</p>
-      <form action="/host/space_management">
-        <input type="submit" value="♛ m a n a g e _ s p a c e s ♛">
-      </form>
-      <form action="/bookings/manage">
-        <input type="submit" value="▩ m a n a g e _ b o o k i n g s ▩">
-      </form>
-    </div>
+    <script>
+
+
+
+    </script>
+
   </body>
 </html>
