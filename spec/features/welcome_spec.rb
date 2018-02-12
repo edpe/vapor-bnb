@@ -37,7 +37,7 @@ feature 'Welcome page' do
     scenario 'the land baron\'s bookings management page' do
       sign_up
       click_button("▩ m a n a g e _ b o o k i n g s ▩")
-      expect(current_path).to eq '/host/bookings_management'
+      expect(current_path).to eq '/bookings/manage'
     end
 
   end

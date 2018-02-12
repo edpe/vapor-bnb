@@ -81,9 +81,14 @@ class VaporBnb < Sinatra::Base
   post '/bookings' do
     booking = Booking.new(date: params[:date])
     booking.space = current_space
+    booking.user = current_user
     if booking.save
-      puts "Booking saved successfully"
+      redirect '/bookings'
     end
+  end
+
+  get '/bookings' do
+    erb(:'bookings/index')
   end
 
 # customer stuff
@@ -95,12 +100,24 @@ class VaporBnb < Sinatra::Base
 # host stuff
 
   get '/host/space_management' do
-
+    erb(:'spaces/manage')
   end
 
-  get '/host/bookings_management' do
-
+  get '/bookings/manage' do
+    # @spaces = current_user.spaces
+    @bookings = current_user.spaces.bookings
+    erb(:'bookings/manage')
   end
+
+  get '/bookings/confirm/:id' do
+    session[:booking_id] = params[:id]
+    current_booking.confirm
+    erb(:'bookings/confirm')
+  end
+
+  # get '/host/bookings_management' do
+  #
+  # end
 
 # helpers
 
@@ -111,6 +128,10 @@ class VaporBnb < Sinatra::Base
 
     def current_space
       @current_space ||= Space.get(session[:space_id])
+    end
+
+    def current_booking
+      @current_booking ||= Booking.get(session[:booking_id])
     end
   end
 
