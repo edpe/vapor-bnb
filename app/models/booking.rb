@@ -7,8 +7,8 @@ class Booking
   belongs_to :space, :required => false
   belongs_to :user
 
-  property :id,   Serial
-  property :date, String
+  property :id,        Serial
+  property :date,      Date
   property :confirmed, Boolean, :default => false
 
   def confirm
