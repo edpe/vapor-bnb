@@ -11,7 +11,7 @@
         <li>
           User <%= booking.user.username %>
           Space: <%= booking.space.name %>
-          Date: <%= booking.date %>
+          Date: <%= booking.date.strftime("%d/%m/%Y") %>
           Price: <%= booking.space.price %>
           <form action=<%="/bookings/confirm/" + booking.id.to_s %> >
             <input type="submit" value=" c o n f i r m "  />

@@ -6,8 +6,8 @@ require_relative 'data_mapper_setup'
 require_relative './models/booking'
 require_relative './models/space'
 require_relative './models/user'
+require 'date'
 # require models here
-# test change
 
 class VaporBnb < Sinatra::Base
 
@@ -69,17 +69,14 @@ class VaporBnb < Sinatra::Base
   get '/spaces/:id' do
     session[:space_id] = params[:id]
     @space = current_space
+    @dates = current_space.bookings.map(&:date).map(&:to_s)
     erb(:'bookings/new')
   end
 
 # bookings
 
-  get '/bookings/new' do
-    erb(:'bookings/new')
-  end
-
   post '/bookings' do
-    booking = Booking.new(date: params[:date])
+    booking = Booking.new(date: Date.parse(params[:date]))
     booking.space = current_space
     booking.user = current_user
     if booking.save
@@ -104,7 +101,6 @@ class VaporBnb < Sinatra::Base
   end
 
   get '/bookings/manage' do
-    # @spaces = current_user.spaces
     @bookings = current_user.spaces.bookings
     erb(:'bookings/manage')
   end
