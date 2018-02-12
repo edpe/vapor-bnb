@@ -1,0 +1,9 @@
+body {
+  background-image:
+  url('./resources/Synthwave-Landscape.jpg');
+  background-size: cover;
+}
+
+form {
+  color: pink;
+}
